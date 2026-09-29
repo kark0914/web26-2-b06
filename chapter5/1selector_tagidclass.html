@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS# selector Basic</title>
+    <style>
+        /* {color: hotpink;}
+        h1, { color: pin;}
+        p   { color: blue;}   */
+
+        #header{
+            width: 800px; margin: 0 auto;
+            background: hotpink;
+        }
+
+        #wrap{
+            width: 800px; margin: 0 auto;
+            overflow: hidden;
+        }
+
+        #aside{
+            width: 200px; float: left;
+            background: skyblue;
+        }
+
+        #content{
+            width: 600px; float: left;
+            background: beige;
+        }
+        
+        #rint{color: red;}
+
+        .animal{color: blueviolet;}
+
+        .select{color:violet;}
+
+        .item{color:  crimson;}
+        .header{background-color: bisque;}
+
+        li.animal{color: darkblue;}
+    </style>
+</head>
+<body>
+    <h2>1. 전체 선택자</h2>
+    <h2>2. 태그 선택자</h2>
+    <h2>3. id 선택자</h2>
+    <h2 class ="item header">4. 클래스 선택자</h2>
+    <hr>
+        <li class="animal">부엉이</li>
+        <li>코알라</li>
+        <li class="animal">원숭이</li>
+        <li>닭</li>
+
+    <hr>
+
+    <h1>제목 글자</h1>
+    <p>lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+    <p>nunc nisl turpis, aliquam id augue a, tincidunt fringilla nisl.</p>
+
+    <hr>
+    <div id = "header">
+        <h1>#header태그</h1>
+    </div>
+    <div id = "wrap">
+        <div id ="aside">
+            <h1>#aside태그</h1>
+        </div>
+        <div id ="content">
+            <h1>#content태그</h1>
+        </div>
+    </div>
+
+</body>
+</html>

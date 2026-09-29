@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>11desc_descendants</title>
+
+    <style>
+        /* #header h1{color: red;}
+        #section h1{color: orange;} */
+        
+        /* #header h1,h2{color: red;} */
+        #header h1,#header h2{color: blue;}
+
+        table > tr > th{color: red;}
+    </style>
+</head>
+<body>
+    <h2>후손 선택자</h2>
+    <h2>자손 선택자</h2>
+    <hr>
+
+    <p>주의! table태그에 스타일을 적용할 때는 자손 선택자를 사용하면 안됨.</p>
+    <table border="1">
+        <tr>
+            <th>이름</th>
+            <th>지역</th>
+        </tr>
+
+        <tr>
+            <th>김명준</th>
+            <th>서울</th>
+        </tr>
+    </table>
+
+
+
+
+
+    <hr>
+    <div id="header">
+        <h1 class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+        <div id="nav">
+            <h1>Navigation</h1>
+            <h2>*header안의 h2 - css3 Selector Basic</h2>
+        </div>
+    
+    </div>
+
+    <div id="section">
+        <h1 class="title">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h1>
+        <h2>*header안의 h2 - css3 Selector Basic</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint soluta sunt</p>
+        </h1>
+    </div>
+    
+</body>
+</html>
