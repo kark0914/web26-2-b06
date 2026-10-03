@@ -1,23 +1,202 @@
 <!DOCTYPE html>
 <html lang="ko">
+ 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>kark 홈페이지</title>
+ 
+    <style>
+        /* 태그 선택자 */
+        body { background: lightgray; }
+        ul { list-style: none; }
+        a { color: black; text-decoration: none; }
+ 
+        #page-wrapper { width: 960px; margin: 0 auto; background: white; }
+ 
+        #main-header { background: hotpink; color: white; padding: 20px; }
+ 
+        /* 왼쪽 메뉴, 오른쪽 검색창 */
+        #main-navigation { height: 50px; background: black; color: white; }
+        .pull-left { float: left; }
+        .pull-right { float: right; }
+ 
+        #main-navigation .outer-menu-item { float: left; position: relative; padding: 10px 25px; }
+        #main-navigation a { color: white; font-weight: bold; }
+ 
+        #main-navigation a:hover { color: hotpink; }
+        #main-navigation a:active { color: skyblue; }
+        #main-navigation .outer-menu-item:hover { background: crimson; }
+ 
+        /*평소에는 숨기고 마우스를 올리면 표시 */
+        #main-navigation .inner-menu { display: none; position: absolute; top: 100%; left: 0;
+                                       width: 230px; background: #444; }
+        #main-navigation .outer-menu-item:hover .inner-menu { display: block; }
+        #main-navigation .inner-menu a { display: block; padding: 8px 20px; font-weight: normal; }
+ 
+        /* 검색창 */
+        .search-bar { padding: 10px 20px; }
+        .input-search:enabled { background-color: white; }
+        .input-search:disabled { background-color: gray; }
+        .input-search:focus { background-color: orange; }
+ 
+        /* 본문 */
+        #content { clear: both; overflow: hidden; padding: 20px; }
+        #main-section { width: 880px; float: left; }
+ 
+        /* 글 영역 */
+        .article-header { background: bisque; padding: 10px; }
+        .article-date { color: gray; }
+        .article-body { padding: 10px; }
+        .article-body li { padding: 3px 0; }
+        .article-body a { color: darkblue; }
+        .article-body a:hover { color: red; }
+        .article-body a:active { color: blue; }
+ 
+        /* 푸터 */
+        #main-footer { background: skyblue; padding: 20px; text-align: center; }
+    </style>
 </head>
+ 
 <body>
-    <h1>kark 홈페이지에 오신 것을 환영합니다!</h1>
-
-    <h2>chapter3</h2>
-    <a href="chapter3/1Text_Header.html">C3.1Text_Header</a><br>
-    <a href="chapter3/3text_content.html">C3.3text_content</a><br>
-    <a href="chapter3/5text_anchor.html">C3.5text_anchor</a><br>
-    <a href="chapter3/10nested_list.html">C3.10nested_list</a><br>
-    <a href="chapter3/11table_basic.html">C3.11table_basic</a><br>
-    <a href="chapter4/8note_Textarea.html">C4.8note_Textarea</a><br> 
-    <a href="chapter4/9space_block.html">C4.9space_block</a><br>  
-    <a href="chapter4\12space_semanticLess.html">C4.12space_semanticLess</a><br>  
-    <a href="chapter5\1selector_tagidclass.html">C5.1selector_tagidclass</a><br>  
-    <a href="chapter5\14etc_state.html">C5.14etc_state</a><br>  
+    <div id="page-wrapper">
+        <header id="main-header">
+            <hgroup>
+                <h1 class="master-title">kark 홈페이지</h1>
+                <h2 class="master-description">프론트엔드개발기초 수업 실습 모음</h2>
+            </hgroup>
+        </header>
+        <nav id="main-navigation">
+            <div class="pull-left">
+                <ul class="outer-menu">
+                    <li class="outer-menu-item">
+                        <a href="#chapter2">chapter2</a>
+                        <ul class="inner-menu">
+                            <li class="inner-menu-item"><a href="chapter2/1주석.html">1주석</a></li>
+                            <li class="inner-menu-item"><a href="chapter2/2HTMLPageWithStyile.html">2HTMLPageWithStyile</a></li>
+                            <li class="inner-menu-item"><a href="chapter2/4HTMLPageWithLink.html">4HTMLPageWithLink</a></li>
+                            <li class="inner-menu-item"><a href="chapter2/5HTMLWithScript.html">5HTMLWithScript</a></li>
+                            <li class="inner-menu-item"><a href="chapter2/7HTMLWithOuterScript.html">7HTMLWithOuterScript</a></li>
+                            <li class="inner-menu-item"><a href="chapter2/8HTMLPageWithError.html">8HTMLPageWithError</a></li>
+                        </ul>
+                    </li>
+                    <li class="outer-menu-item">
+                        <a href="#chapter3">chapter3</a>
+                        <ul class="inner-menu">
+                            <li class="inner-menu-item"><a href="chapter3/1Text_Header.html">1Text_Header</a></li>
+                            <li class="inner-menu-item"><a href="chapter3/3text_content.html">3text_content</a></li>
+                            <li class="inner-menu-item"><a href="chapter3/5text_anchor.html">5text_anchor</a></li>
+                            <li class="inner-menu-item"><a href="chapter3/10nested_list.html">10nested_list</a></li>
+                            <li class="inner-menu-item"><a href="chapter3/11table_basic.html">11table_basic</a></li>
+                            <li class="inner-menu-item"><a href="chapter3/12table_cell.html">12table_cell</a></li>
+                            <li class="inner-menu-item"><a href="chapter3/13tabel_span.html">13tabel_span</a></li>
+                            <li class="inner-menu-item"><a href="chapter3/14image_basic.html">14image_basic</a></li>
+                        </ul>
+                    </li>
+                    <li class="outer-menu-item">
+                        <a href="#chapter4">chapter4</a>
+                        <ul class="inner-menu">
+                            <li class="inner-menu-item"><a href="chapter4/1form_basic.html">1form_basic</a></li>
+                            <li class="inner-menu-item"><a href="chapter4/2note_form.html">2note_form</a></li>
+                            <li class="inner-menu-item"><a href="chapter4/4form_selectbasic.html">4form_selectbasic</a></li>
+                            <li class="inner-menu-item"><a href="chapter4/8note_Textarea.html">8note_Textarea</a></li>
+                            <li class="inner-menu-item"><a href="chapter4/9space_block.html">9space_block</a></li>
+                            <li class="inner-menu-item"><a href="chapter4/12space_semanticLess.html">12space_semanticLess</a></li>
+                            <li class="inner-menu-item"><a href="chapter4/13space_semantic.html">13space_semantic</a></li>
+                        </ul>
+                    </li>
+                    <li class="outer-menu-item">
+                        <a href="#chapter5">chapter5</a>
+                        <ul class="inner-menu">
+                            <li class="inner-menu-item"><a href="chapter5/1selector_tagidclass.html">1selector_tagidclass</a></li>
+                            <li class="inner-menu-item"><a href="chapter5/9atrribute_basic.html">9atrribute_basic</a></li>
+                            <li class="inner-menu-item"><a href="chapter5/11desc-descendants.html">11desc-descendants</a></li>
+                            <li class="inner-menu-item"><a href="chapter5/14etc_state.html">14etc_state</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="pull-right">
+                <div class="search-bar">
+                    <form>
+                        <input type="text" class="input-search">
+                        <input type="submit" class="input-search-submit" value="검색">
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <div id="content">
+            <section id="main-section">
+                <article id="chapter2">
+                    <div class="article-header">
+                        <h1 class="article-title">chapter2 - 웹 페이지 기본 구조와 작성 방법</h1>
+                        <p class="article-date">HTML 페이지 기본 구조</p>
+                    </div>
+                    <div class="article-body">
+                        <ul>
+                            <li><a href="chapter2/1주석.html">1주석</a></li>
+                            <li><a href="chapter2/2HTMLPageWithStyile.html">2HTMLPageWithStyile</a></li>
+                            <li><a href="chapter2/4HTMLPageWithLink.html">4HTMLPageWithLink</a></li>
+                            <li><a href="chapter2/5HTMLWithScript.html">5HTMLWithScript</a></li>
+                            <li><a href="chapter2/7HTMLWithOuterScript.html">7HTMLWithOuterScript</a></li>
+                            <li><a href="chapter2/8HTMLPageWithError.html">8HTMLPageWithError</a></li>
+                        </ul>
+                    </div>
+                </article>
+                <article id="chapter3">
+                    <div class="article-header">
+                        <h1 class="article-title">chapter3 - HTML 기본태그</h1>
+                        <p class="article-date">HTML 기본 태그</p>
+                    </div>
+                    <div class="article-body">
+                        <ul>
+                            <li><a href="chapter3/1Text_Header.html">1Text_Header</a></li>
+                            <li><a href="chapter3/3text_content.html">3text_content</a></li>
+                            <li><a href="chapter3/5text_anchor.html">5text_anchor</a></li>
+                            <li><a href="chapter3/10nested_list.html">10nested_list</a></li>
+                            <li><a href="chapter3/11table_basic.html">11table_basic</a></li>
+                            <li><a href="chapter3/12table_cell.html">12table_cell</a></li>
+                            <li><a href="chapter3/13tabel_span.html">13tabel_span</a></li>
+                            <li><a href="chapter3/14image_basic.html">14image_basic</a></li>
+                        </ul>
+                    </div>
+                </article>
+                <article id="chapter4">
+                    <div class="article-header">
+                        <h1 class="article-title">chapter4 - HTML 입력 양식 태그와 구조화 태그</h1>
+                        <p class="article-date">form, 시맨틱 태그</p>
+                    </div>
+                    <div class="article-body">
+                        <ul>
+                            <li><a href="chapter4/1form_basic.html">1form_basic</a></li>
+                            <li><a href="chapter4/2note_form.html">2note_form</a></li>
+                            <li><a href="chapter4/4form_selectbasic.html">4form_selectbasic</a></li>
+                            <li><a href="chapter4/8note_Textarea.html">8note_Textarea</a></li>
+                            <li><a href="chapter4/9space_block.html">9space_block</a></li>
+                            <li><a href="chapter4/12space_semanticLess.html">12space_semanticLess</a></li>
+                            <li><a href="chapter4/13space_semantic.html">13space_semantic</a></li>
+                        </ul>
+                    </div>
+                </article>
+                <article id="chapter5">
+                    <div class="article-header">
+                        <h1 class="article-title">chapter5 - CSS 기초 : 선택자, 속성, 상태</h1>
+                        <p class="article-date">선택자, 속성, 상태</p>
+                    </div>
+                    <div class="article-body">
+                        <ul>
+                            <li><a href="chapter5/1selector_tagidclass.html">1selector_tagidclass</a></li>
+                            <li><a href="chapter5/9atrribute_basic.html">9atrribute_basic</a></li>
+                            <li><a href="chapter5/11desc-descendants.html">11desc-descendants</a></li>
+                            <li><a href="chapter5/14etc_state.html">14etc_state</a></li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+        </div>
+        <footer id="main-footer">
+            <a href="#">kark0914 / web26-2-b06</a>
+        </footer>
+    </div>
 </body>
+ 
 </html>
