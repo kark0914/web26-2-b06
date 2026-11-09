@@ -3,57 +3,193 @@
  
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>kark 홈페이지</title>
  
     <style>
-        /* 태그 선택자 */
-        body { background: lightgray; }
-        ul { list-style: none; }
-        a { color: black; text-decoration: none; }
- 
-        #page-wrapper { width: 960px; margin: 0 auto; background: white; }
- 
-        #main-header { background: hotpink; color: white; padding: 20px; }
- 
-        /* 왼쪽 메뉴, 오른쪽 검색창 */
-        #main-navigation { height: 50px; background: black; color: white; }
+        * {
+            margin: 0; padding: 0;
+            font-family: '맑은 고딕', 'Malgun Gothic', Gothic, sans-serif;
+        }
+
+        a { text-decoration: none; }
+
+        li { list-style: none; }
+
         .pull-left { float: left; }
         .pull-right { float: right; }
- 
-        #main-navigation .outer-menu-item { float: left; position: relative; padding: 10px 25px; }
-        #main-navigation a { color: white; font-weight: bold; }
- 
-        #main-navigation a:hover { color: hotpink; }
-        #main-navigation a:active { color: skyblue; }
-        #main-navigation .outer-menu-item:hover { background: crimson; }
- 
-        /*평소에는 숨기고 마우스를 올리면 표시 */
-        #main-navigation .inner-menu { display: none; position: absolute; top: 100%; left: 0;
-                                       width: 230px; background: #444; }
-        #main-navigation .outer-menu-item:hover .inner-menu { display: block; }
-        #main-navigation .inner-menu a { display: block; padding: 8px 20px; font-weight: normal; }
- 
-        /* 검색창 */
-        .search-bar { padding: 10px 20px; }
-        .input-search:enabled { background-color: white; }
-        .input-search:disabled { background-color: gray; }
-        .input-search:focus { background-color: orange; }
- 
-        /* 본문 */
-        #content { clear: both; overflow: hidden; padding: 20px; }
-        #main-section { width: 880px; float: left; }
- 
-        /* 글 영역 */
-        .article-header { background: bisque; padding: 10px; }
-        .article-date { color: gray; }
-        .article-body { padding: 10px; }
+
+        body {
+            width: 960px; margin: 0 auto;
+            background: lightgray;
+        }
+
+        #page-wrapper {
+            background: white;
+            margin: 40px 0; padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+        }
+
+        #main-header { padding: 40px 50px; background: hotpink; }
+
+        .master-title {
+            font-size: 30px;
+            color: white;
+        }
+        .master-description {
+            font-size: 15px; font-weight: 500;
+            color: white;
+        }
+
+        #main-navigation {
+            background: black;
+            color: white;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            margin-bottom: 20px;
+            height: 40px;
+        }
+
+        .outer-menu-item {
+            float: left;
+            position: relative;
+        }
+        .outer-menu-item:hover {
+            background: crimson;
+            color: white;
+        }
+
+        .menu-title {
+            display: block;
+            height: 30px; line-height: 30px;
+            text-align: center;
+            padding: 5px 14px;
+        }
+
+        .inner-menu {
+            display: none;
+            position: absolute;
+            top: 40px; left: 0;
+            width: 230px;
+            background: #444;
+            box-shadow: 0 2px 6px rgba(5, 5, 5, 0.9);
+            z-index: 1000;
+            text-align: center;
+        }
+        .outer-menu-item:hover .inner-menu { display: block; }
+        .inner-menu-item > a {
+            display: block;
+            padding: 5px 10px;
+            color: white;
+        }
+        .inner-menu-item > a:hover {
+            background: crimson;
+            color: white;
+        }
+
+        .search-bar {
+            height: 26px;
+            padding: 7px;
+        }
+
+        .input-search {
+            display: block;
+            float: left;
+            background-color: #FFFFFF;
+            border: 1px solid #CCCCCC;
+            border-radius: 15px 0 0 15px;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+            width: 120px; height: 24px;
+            padding: 0 0 0 10px;
+            font-size: 12px;
+            color: #555555;
+        }
+        .input-search:focus {
+            border-color: rgba(82, 168, 236, 0.8);
+            outline: 0;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+        }
+        .input-search-submit {
+            display: block;
+            float: left;
+            width: 50px; height: 26px;
+            border-radius: 0 15px 15px 0;
+            border: 1px solid #CCCCCC;
+            margin-left: -1px;
+            vertical-align: top;
+        }
+
+        #content { overflow: hidden; }
+
+        #main-section {
+            float: left;
+            width: 710px;
+        }
+        #main-aside {
+            float: right;
+            width: 200px;
+            background: beige;
+        }
+
+        .part-title {
+            font-size: 24px; font-weight: 500;
+            background: hotpink;
+            color: white;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        article {
+            padding: 0 10px 20px 10px;
+            border-bottom: 1px solid lightgray;
+        }
+
+        .article-header { padding: 15px 10px; background: bisque; margin: 10px 0; }
+        .article-title {
+            font-size: 25px; font-weight: 500;
+            padding-bottom: 10px;
+        }
+        .article-date { font-size: 13px; color: gray; }
+        .article-body { font-size: 14px; }
         .article-body li { padding: 3px 0; }
         .article-body a { color: darkblue; }
-        .article-body a:hover { color: red; }
+        .article-body a:hover { color: red; text-decoration: underline; }
         .article-body a:active { color: blue; }
- 
-        /* 푸터 */
-        #main-footer { background: skyblue; padding: 20px; text-align: center; }
+
+        .aside-list { padding: 10px 10px 20px 10px; }
+        .aside-list > h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: crimson;
+        }
+        .aside-list li a {
+            margin-left: 8px;
+            font-size: 13px;
+            color: #6C6C6C;
+        }
+        .aside-list li a:hover { color: red; }
+
+        #main-footer { padding: 20px 10px; font-size: 13px; background: skyblue; text-align: center; }
+        #main-footer a { color: black; }
+
+        @media screen and (max-width: 979px) {
+            body { width: auto; }
+            #main-navigation { height: auto; position: relative; }
+            .pull-left { float: none; }
+            .pull-right { float: none; }
+            .outer-menu-item { float: none; display: inline-block; position: static; }
+            .inner-menu { top: 100%; left: 0; right: 0; width: auto; }
+            #main-section { width: 70%; }
+            #main-aside { width: 28%; }
+        }
+
+        @media screen and (max-width: 767px) {
+            #page-wrapper { margin: 0; padding: 10px; }
+            #main-header { padding: 20px 10px; }
+            #main-section { width: auto; float: none; }
+            #main-aside { width: auto; float: none; }
+        }
     </style>
 </head>
  
@@ -69,7 +205,7 @@
             <div class="pull-left">
                 <ul class="outer-menu">
                     <li class="outer-menu-item">
-                        <a href="#chapter2">chapter2</a>
+                        <span class="menu-title">chapter2</span>
                         <ul class="inner-menu">
                             <li class="inner-menu-item"><a href="chapter2/1주석.html">1주석</a></li>
                             <li class="inner-menu-item"><a href="chapter2/2HTMLPageWithStyile.html">2HTMLPageWithStyile</a></li>
@@ -80,7 +216,7 @@
                         </ul>
                     </li>
                     <li class="outer-menu-item">
-                        <a href="#chapter3">chapter3</a>
+                        <span class="menu-title">chapter3</span>
                         <ul class="inner-menu">
                             <li class="inner-menu-item"><a href="chapter3/1Text_Header.html">1Text_Header</a></li>
                             <li class="inner-menu-item"><a href="chapter3/3text_content.html">3text_content</a></li>
@@ -93,7 +229,7 @@
                         </ul>
                     </li>
                     <li class="outer-menu-item">
-                        <a href="#chapter4">chapter4</a>
+                        <span class="menu-title">chapter4</span>
                         <ul class="inner-menu">
                             <li class="inner-menu-item"><a href="chapter4/1form_basic.html">1form_basic</a></li>
                             <li class="inner-menu-item"><a href="chapter4/2note_form.html">2note_form</a></li>
@@ -105,7 +241,7 @@
                         </ul>
                     </li>
                     <li class="outer-menu-item">
-                        <a href="#chapter5">chapter5</a>
+                        <span class="menu-title">chapter5</span>
                         <ul class="inner-menu">
                             <li class="inner-menu-item"><a href="chapter5/1selector_tagidclass.html">1selector_tagidclass</a></li>
                             <li class="inner-menu-item"><a href="chapter5/9atrribute_basic.html">9atrribute_basic</a></li>
@@ -117,7 +253,7 @@
                         </ul>
                     </li>
                     <li class="outer-menu-item">
-                        <a href="#chapter6">chapter6</a>
+                        <span class="menu-title">chapter6</span>
                         <ul class="inner-menu">
                             <li class="inner-menu-item"><a href="chapter6/1_box_widthHeight.html">1_box_widthHeight</a></li>
                             <li class="inner-menu-item"><a href="chapter6/5border_basic.html">5border_basic</a></li>
@@ -135,7 +271,7 @@
                         </ul>
                     </li>
                     <li class="outer-menu-item">
-                        <a href="#chapter7">chapter7</a>
+                        <span class="menu-title">chapter7</span>
                         <ul class="inner-menu">
                             <li class="inner-menu-item"><a href="chapter7/1floatWithOverflow1.html">1floatWithOverflow1</a></li>
                             <li class="inner-menu-item"><a href="chapter7/2noteclear.html">2noteclear</a></li>
@@ -149,7 +285,7 @@
                         </ul>
                     </li>
                     <li class="outer-menu-item">
-                        <a href="#chapter8">chapter8</a>
+                        <span class="menu-title">chapter8</span>
                         <ul class="inner-menu">
                             <li class="inner-menu-item"><a href="chapter8/1without_meta.html">1without_meta</a></li>
                             <li class="inner-menu-item"><a href="chapter8/2_1note_meta.html">2_1note_meta</a></li>
@@ -177,6 +313,7 @@
         </nav>
         <div id="content">
             <section id="main-section">
+                <h1 class="part-title">[수업 실습]</h1>
                 <article id="chapter2">
                     <div class="article-header">
                         <h1 class="article-title">chapter2 - 웹 페이지 기본 구조와 작성 방법</h1>
@@ -309,6 +446,29 @@
                     </div>
                 </article>
             </section>
+            <aside id="main-aside">
+                <div class="aside-list">
+                    <h3>카테고리</h3>
+                    <ul>
+                        <li><a href="#chapter2">chapter2</a></li>
+                        <li><a href="#chapter3">chapter3</a></li>
+                        <li><a href="#chapter4">chapter4</a></li>
+                        <li><a href="#chapter5">chapter5</a></li>
+                        <li><a href="#chapter6">chapter6</a></li>
+                        <li><a href="#chapter7">chapter7</a></li>
+                        <li><a href="#chapter8">chapter8</a></li>
+                    </ul>
+                </div>
+                <div class="aside-list">
+                    <h3>최근 글</h3>
+                    <ul>
+                        <li><a href="chapter8/12pattern4.html">12pattern4</a></li>
+                        <li><a href="chapter8/11pattern3.html">11pattern3</a></li>
+                        <li><a href="chapter8/10pattern2.html">10pattern2</a></li>
+                        <li><a href="chapter8/9pattern1.html">9pattern1</a></li>
+                    </ul>
+                </div>
+            </aside>
         </div>
         <footer id="main-footer">
             <a href="#">kark0914 / web26-2-b06</a>
